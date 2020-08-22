@@ -1,7 +1,7 @@
 
 exports.up = async function(knex) {
                       //`CREATE TABLE for cars`
-    await knex.schema.createTable("cars", (table)=>{
+    await knex.schema.createTableIfNotExists("cars", (table)=>{
       table.increments("id")
       table.text("make").notNull().unique()
       table.text("model").notNull().unique()
